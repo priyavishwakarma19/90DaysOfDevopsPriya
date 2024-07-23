@@ -1,4 +1,4 @@
-day02/solution-day01.mdBasic Linux Commonds -->
+Basic Linux Commonds -->
 
 . ls --> The ls commons is used to list the files or directories in Linux and Unix-based operating system.
 
