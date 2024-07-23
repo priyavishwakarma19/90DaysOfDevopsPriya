@@ -1,4 +1,4 @@
-Basic linux commands
+Basic linux commands--->
 
 Listing commands
 
@@ -16,7 +16,7 @@ ls -i  --> list the files and directories with index numbers inodes
 
  ls -d */ --> list only directories.(we can also specify a pattern)
 
-Directoy commands
+Directoy commands --->
 
 pwd --> print work directory. Gives the present working directory.
 
@@ -32,7 +32,7 @@ cd - --> Go to the last working directory.
 
  mkdir  directoryName --> to make a directory in a specific location
 
-Examples:
+Examples-->
 
 mkdir newFolder              # make a new folder 'newFolder'
 
@@ -44,7 +44,7 @@ mkdir /home/user/Mydirectory   # make a new folder in a specific location
 
 mkdir -p  A/B/C/D              # make a nested directoryBasic linux commands
 
-Listing commands
+Listing commands -->
 
 ls option_flag arguments --> list the sub directories and files avaiable in the present directory
 
