@@ -1,0 +1,185 @@
+#Day 3 Task: Basic Linux Commands with a Twist
+
+Task: What are the Linux commands to
+
+1. View the content of a file and display line numbers.
+ 
+Solution 1 -->
+
+ubuntu@ip-172-31-19-55:~/assignments/day03$ cat -n task1.txt
+     1	Hi everyone
+     2	My name is Priya Vishwakarma
+     3	I have stared learing shell scripting
+     4	Today is my third day of devops challenge.
+     5	I'll try my best to complete this.
+ubuntu@ip-172-31-19-55:~/assignments/day03$
+
+
+2. Change the access permissions of files to make them readable, writable, and executable by the owner only.
+
+Solution 2 -->
+
+ubuntu@ip-172-31-19-55:~/assignments/day03$ ls -l task1.txt
+-rw-rw-r-- 1 ubuntu ubuntu 158 Aug  3 00:48 task1.txt
+ubuntu@ip-172-31-19-55:~/assignments/day03$ chmod 777 task1.txt
+ubuntu@ip-172-31-19-55:~/assignments/day03$ ls -l task1.txt
+-rwxrwxrwx 1 ubuntu ubuntu 158 Aug  3 00:48 task1.txt
+ubuntu@ip-172-31-19-55:~/assignments/day03$
+
+
+
+3. Check the last 10 commands you have run.
+
+Solution 3 -->
+
+ubuntu@ip-172-31-19-55:~/assignments/day03$ history | tail -10
+  407  ls - l
+  408  ls -l
+  409  clear
+  410  ls
+  411  ls -l task1.txt
+  412  chmod 777 task1.txt
+  413  ls -l task1.txt
+  414  vim day03.txt
+  415  history tail -10
+  416  history | tail -10
+ubuntu@ip-172-31-19-55:~/assignments/day03$
+
+
+
+4. Remove a directory and all its contents.
+
+Soultion 4 -->
+
+ubuntu@ip-172-31-19-55:~/assignments/day03$ ls
+day03.txt  remove-dir  task1.txt
+ubuntu@ip-172-31-19-55:~/assignments/day03$ cd remove-dir
+ubuntu@ip-172-31-19-55:~/assignments/day03/remove-dir$ ls
+file1.txt  file2.txt  file3.txt  file4.txt  file5.txt
+ubuntu@ip-172-31-19-55:~/assignments/day03/remove-dir$ cd -
+/home/ubuntu/assignments/day03
+ubuntu@ip-172-31-19-55:~/assignments/day03$ rm remove-dir
+rm: cannot remove 'remove-dir': Is a directory
+ubuntu@ip-172-31-19-55:~/assignments/day03$ rm -r remove-dir
+ubuntu@ip-172-31-19-55:~/assignments/day03$ ls
+day03.txt  task1.txt
+
+
+
+5. Create a `fruits.txt` file, add content (one fruit per line), and display the content.
+
+Solution 5 -->
+
+Kiwi
+ubuntu@ip-172-31-19-55:~/assignments/day03$ vim fruits.txt
+ubuntu@ip-172-31-19-55:~/assignments/day03$ cat fruits.txt
+Kiwi
+Mango
+Banana
+Cherry
+Orange
+Guava
+
+
+6. Add content in `devops.txt` (one in each line) - Apple, Mango, Banana, Cherry, Kiwi, Orange, Guava. Then, append "Pineapple" to the end of the file.
+
+Solution 6 -->
+
+ubuntu@ip-172-31-19-55:~/assignments/day03$ vim devops.txt
+ubuntu@ip-172-31-19-55:~/assignments/day03$ cat devops.txt
+Apple
+Mango
+Banana
+Cherry
+Kiwi
+Orange
+Guava
+ubuntu@ip-172-31-19-55:~/assignments/day03$ echo "Pineapple" >> devops.txt
+ubuntu@ip-172-31-19-55:~/assignments/day03$ cat devops.txt
+Apple
+Mango
+Banana
+Cherry
+Kiwi
+Orange
+Guava
+Pineapple
+
+
+7. Show the first three fruits from the file in reverse order.
+
+Solution 7 -->
+
+ubuntu@ip-172-31-19-55:~/assignments/day03$ head -3 devops.txt | tac
+Banana
+Mango
+Apple
+
+
+8. Show the bottom three fruits from the file, and then sort them alphabetically.
+
+Solution 8 -->
+
+ubuntu@ip-172-31-19-55:~/assignments/day03$ tail -3 devops.txt | sort
+Guava
+Orange
+Pineapple
+
+9. Create another file `Colors.txt`, add content (one color per line), and display the content.
+
+Solution 9 -->
+
+ubuntu@ip-172-31-19-55:~/assignments/day03$ echo -e "Red\nPink\nBlue\nGreen\nYellow\nOrange" > Colors.txt
+ubuntu@ip-172-31-19-55:~/assignments/day03$ ls
+Colors.txt  day03.txt  devops.txt  fruits.txt  task1.txt
+ubuntu@ip-172-31-19-55:~/assignments/day03$ cat Colors.txt
+Red
+Pink
+Blue
+Green
+Yellow
+Orange
+
+
+10. Add content in `Colors.txt` (one in each line) - Red, Pink, White, Black, Blue, Orange, Purple, Grey. Then, prepend "Yellow" to the beginning of the file.
+
+Solution 10 -->
+
+ubuntu@ip-172-31-19-55:~/assignments/day03$ cat Colors.txt
+Red
+Pink
+White
+Black
+Blue
+Orange
+Purple
+Grey
+ubuntu@ip-172-31-19-55:~/assignments/day03$ echo -e "Yellow\n$(cat Colors.txt)" > Colors.txt
+ubuntu@ip-172-31-19-55:~/assignments/day03$ cat Colors.txt
+Yellow
+Red
+Pink
+White
+Black
+Blue
+Orange
+Purple
+Grey
+
+11. Find and display the lines that are common between `fruits.txt` and `Colors.txt`.
+
+Solution 11 -->
+
+ubuntu@ip-172-31-19-55:~/assignments/day03$ comm -12 <(sort fruits.txt) <(sort Colors.txt)
+Orange
+
+12. Count the number of lines, words, and characters in both `fruits.txt` and `Colors.txt`.
+
+Solution 12 -->
+
+ubuntu@ip-172-31-19-55:~/assignments/day03$ wc fruits.txt Colors.txt
+ 6  6 38 fruits.txt
+ 9  9 52 Colors.txt
+15 15 90 total
+
+Reference: [Linux Commands for DevOps Used Day-to-Day](https://www.linkedin.com/pulse/linux-commands-devops-used-day-to-day-activit-chetan-/)
